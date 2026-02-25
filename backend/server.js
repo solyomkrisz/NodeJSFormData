@@ -33,6 +33,9 @@ app.use('/', router);
 const endpoints = require('./api/api.js');
 app.use('/api', endpoints);
 
+const konyvek = require('./api/konyvek.js');
+app.use('/konyvek', konyvek);
+
 //!Szerver futtatása
 app.use(express.static(path.join(__dirname, '../frontend'))); //?frontend mappa tartalmának betöltése az oldal működéséhez
 app.listen(port, ip, () => {

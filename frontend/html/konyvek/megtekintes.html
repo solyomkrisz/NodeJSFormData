@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Főoldal</title>
+        <!--!Bootstrap-->
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+        <!--?Popper: dropdowns, popovers, tooltips-->
+        <script src="/bootstrap/js/popper.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <!--!CSS-->
+        <link rel="stylesheet" href="/css/index.css" />
+        <!--!JavaScript-->
+        <script src="/javascript/index.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid p-0">
+            <div class="row m-0 p-0" style="margin-bottom: 10px !important">
+                <div class="col-12 m-0 p-0">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Könyvek</a>
+                            <button
+                                class="navbar-toggler"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                            >
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link"
+                                            aria-current="page"
+                                            href="/konyvek/fooldal"
+                                            >Főoldal</a
+                                        >
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/konyvek/hozzaad">Hozzáadás</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="/konyvek/megtekint"
+                                            >Megtekintés</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered text-center">
+                        <tr>
+                            <th>Cím</th>
+                            <th>Szerző</th>
+                            <th>Kiadó</th>
+                            <th>Kiadás éve</th>
+                            <th>Műfaj</th>
+                            <th>Ár</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => {
+                const table = document.querySelector('table');
+
+                const data = await fetch('/konyvek/osszeskonyv')
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`${response.status}: ${response.status}`);
+                        }
+
+                        return response.json();
+                    })
+                    .then((data) => {
+                        for (const d of data.result) {
+                            const tr = document.createElement('tr');
+
+                            let td = document.createElement('td');
+                            td.textContent = d.cim;
+                            tr.appendChild(td);
+
+                            td = document.createElement('td');
+                            td.textContent = d.szerzo;
+                            tr.appendChild(td);
+
+                            td = document.createElement('td');
+                            td.textContent = d.kiado;
+                            tr.appendChild(td);
+
+                            td = document.createElement('td');
+                            td.textContent = d.kiadas_eve;
+                            tr.appendChild(td);
+
+                            td = document.createElement('td');
+                            td.textContent = d.mufaj;
+                            tr.appendChild(td);
+
+                            td = document.createElement('td');
+                            td.textContent = d.ar;
+                            tr.appendChild(td);
+
+                            table.appendChild(tr);
+                        }
+                    })
+                    .catch((error) => console.error(error));
+            });
+        </script>
+    </body>
+</html>

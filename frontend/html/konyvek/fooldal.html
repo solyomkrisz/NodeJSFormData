@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Főoldal</title>
+        <!--!Bootstrap-->
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+        <!--?Popper: dropdowns, popovers, tooltips-->
+        <script src="/bootstrap/js/popper.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <!--!CSS-->
+        <link rel="stylesheet" href="/css/index.css" />
+        <!--!JavaScript-->
+        <script src="/javascript/index.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid p-0">
+            <div class="row m-0 p-0">
+                <div class="col-12 m-0 p-0">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Könyvek</a>
+                            <button
+                                class="navbar-toggler"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                            >
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link active"
+                                            aria-current="page"
+                                            href="/konyvek/fooldal"
+                                            >Főoldal</a
+                                        >
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/konyvek/hozzaad">Hozzáadás</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/konyvek/megtekint"
+                                            >Megtekintés</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="row p-0">
+                <div class="col-12 p-0">
+                    <div id="carouselExample" style="height: 300px" class="carousel slide">
+                        <div class="carousel-inner w-100 h-100 d-flex align-items-center">
+                            <div class="carousel-item active w-100 h-100">
+                                <img
+                                    src="/images/konyv.jpeg"
+                                    class="w-100 h-100 d-block img-fluid"
+                                    alt="..."
+                                />
+                            </div>
+                            <div class="carousel-item w-100 h-100">
+                                <img
+                                    src="/images/nyul.jpg"
+                                    class="w-100 h-100 d-block img-fluid"
+                                    alt="..."
+                                />
+                            </div>
+                            <div class="carousel-item w-100 h-100">
+                                <img
+                                    src="/images/moso.jpg"
+                                    class="w-100 h-100 d-block img-fluid"
+                                    alt="..."
+                                />
+                            </div>
+                        </div>
+                        <button
+                            class="carousel-control-prev"
+                            type="button"
+                            data-bs-target="#carouselExample"
+                            data-bs-slide="prev"
+                        >
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                            class="carousel-control-next"
+                            type="button"
+                            data-bs-target="#carouselExample"
+                            data-bs-slide="next"
+                        >
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
